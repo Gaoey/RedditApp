@@ -1,0 +1,58 @@
+{
+  "name": "RedditApp",
+  "version": "0.7.0",
+  "main": "src/",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "logger": "sherlockholmes start",
+    "test": "jest --colors --coverage",
+    "clean": "rm -rf node_modules && watchman watch-del-all && npm cache clean",
+    "test:watch": "jest --watch --colors --coverage",
+    "lint": "node node_modules/eslint/bin/eslint.js . --fix --ignore-path .gitignore --format=node_modules/eslint-formatter-pretty",
+    "lint-validate": "node node_modules/eslint/bin/eslint.js .  --ignore-path .gitignore  --quiet"
+  },
+  "dependencies": {
+    "axios": "0.16.1",
+    "lodash": "4.17.4",
+    "normalizr": "3.2.2",
+    "ramda": "0.23.0",
+    "react": "16.0.0-alpha.12",
+    "react-native": "0.44.0",
+    "react-native-router-flux": "3.38.0",
+    "react-native-linear-gradient": "2.0.0",
+    "react-native-material-kit": "0.4.1",
+    "react-redux": "5.0.4",
+    "redux": "3.6.0",
+    "redux-form": "6.6.3",
+    "redux-thunk": "2.2.0",
+    "mascot": "git+ssh://bitbucket.org/dotography-code/mascot.git"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-preset-react-native": "^2.1.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "jest": "20.0.4",
+    "react-test-renderer": "16.0.0-alpha.12",
+    "redux-mock-store": "^1.2.3",
+    "sherlockholmes": "git+ssh://bitbucket.org/dotography-code/sherlockholmes.git"
+  },
+  "jest": {
+    "preset": "react-native",
+    "setupFiles": [
+      "<rootDir>/src/config/jest/globalFetch.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/?!(react-native|native-base)"
+    ],
+    "moduleNameMapper": {
+      "^image![a-zA-Z0-9$_-]+$": "GlobalImageStub",
+      "^[@./a-zA-Z0-9$_-]+\\.(png|gif)$": "RelativeImageStub"
+    },
+    "verbose": true
+  }
+}
