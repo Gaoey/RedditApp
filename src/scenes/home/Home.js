@@ -1,28 +1,18 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import Mascot from 'mascot'
+import { View, Text, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { FeedContainer } from '../../features';
+import { RedditListContainer } from '../../features';
 import { project } from '../../config';
+
 
 // create a component
 class Home extends Component {
   render() {
     return (
-      <View>
-        <Text>Home on modular</Text>
-        <Button
-          onPress={() => Actions[`${project.name}About`]()}
-          title="About Scene"
-          color="orange"
-          accessibilityLabel="Go to about scene" />
-        <Button
-          onPress={() => Actions[`${project.name}Form`]()}
-          title="Form"
-          color="blue"
-          accessibilityLabel="Go to form scene" />
-
-        <FeedContainer />
+      <View style={styles.decorate}>
+        <RedditListContainer />
       </View>
     );
   }
@@ -34,6 +24,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
+  decorate:{
+    marginTop:30
+  }
 });
 
 //make this component available to the app

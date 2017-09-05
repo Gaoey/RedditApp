@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import posts from './feed/feedReducer'
+import posts from './redditList/RedditListReducer'
 import settings from './setting/settingReducer'
 
 export default combineReducers({
-  feed: posts,
+  posts,
   settings
 });
