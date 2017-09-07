@@ -1,5 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import { ScrollView, Text, FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import { project } from '../../config';
@@ -9,8 +10,18 @@ import RedditItem from './RedditItem'
 // create a component
 class RedditListContainer extends Component {
 
+    static propTypes = {
+        category: PropTypes.string,
+    }
+
     componentDidMount() {
-        this.props.fetchRedditPost()
+        this.props.fetchRedditPost(this.props.category)
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.category !== this.props.category){
+            this.props.fetchRedditPost(nextProps.category)
+        }
     }
 
     keyExtractor = (item) => item.data.id
@@ -47,8 +58,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        fetchRedditPost: () => {
-            dispatch(fetchPostsIfNeeded())
+        fetchRedditPost: (category) => {
+            dispatch(fetchPostsIfNeeded(category))
         }
     }
 }

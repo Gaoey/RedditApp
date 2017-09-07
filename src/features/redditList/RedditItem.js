@@ -4,10 +4,11 @@ import { Text, StyleSheet } from 'react-native';
 import { Card, CardTitle, CardItem, CardContent, CardImage } from '../../common/stupidCard'
 
 const RedditItem = ({ data }) => {
+    const hasImageSrc = data.thumbnail !== ""
     return (
         <Card>
             <CardContent>
-                <CardImage src={data.thumbnail} />
+                { hasImageSrc ? <CardImage src={data.thumbnail} /> : null }
                 <CardTitle>
                     <Text>{data.title}</Text>
                 </CardTitle>

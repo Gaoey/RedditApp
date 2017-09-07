@@ -27,12 +27,12 @@ function fetchPostsSuccess(data) {
   };
 }
 
-function fetchPosts(axios) {
+function fetchPosts(axios, category) {
   return dispatch => {
     dispatch({
       type: FETCH_REDDIT.REQUEST
     });
-    return axios(`${BASE_REDDIT_URL}r/all.json`)
+    return axios(`${BASE_REDDIT_URL}r/${category}.json`)
       .then(
       data => dispatch(fetchPostsSuccess(data)),
       error => dispatch(fetchPostsFailure(error))
@@ -45,10 +45,10 @@ function shouldFetchPosts(state) {
   return posts.value instanceof Array || posts.isFetching
 }
 
-export function fetchPostsIfNeeded() {
+export function fetchPostsIfNeeded(category) {
   return (dispatch, getState, axios) => {
     if (shouldFetchPosts(getState())) {
-      return dispatch(fetchPosts(axios))
+      return dispatch(fetchPosts(axios, category))
     }
   };
 }
