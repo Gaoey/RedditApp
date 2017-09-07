@@ -1,33 +1,34 @@
 //import liraries
 import React, { Component } from 'react';
 import Mascot from 'mascot'
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { RedditListContainer } from '../../features';
 import { project } from '../../config';
 
+const { Components } = Mascot
+const { NavBar } = Components
 
-// create a component
 class Home extends Component {
   render() {
     return (
-      <View style={styles.decorate}>
-        <RedditListContainer />
+      <View style={styles.container}>
+        <NavBar title={{ text: 'GAOEY REDDIT' }} hasShadow />
+        <View style={styles.RedditList}>
+          <RedditListContainer />
+        </View>
       </View>
     );
   }
 }
 
-// define your styles
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
+    flex: 1
   },
-  decorate:{
-    marginTop:30
+  RedditList: {
+    marginTop:70
   }
-});
+})
 
-//make this component available to the app
 export default Home;

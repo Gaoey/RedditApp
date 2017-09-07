@@ -5,15 +5,15 @@ import { project } from './config';
 import * as scene from './scenes'
 
 export const Scenes = [
-  { key: `${project.name}Form`, component: 'Form', title: 'm Form', options: {} },
-  { key: `${project.name}DefaultForm`, component: 'DefaultFrom', title: 'm DefaultForm', options: {} },
-  { key: `${project.name}InitForm`, component: 'InitFrom', title: 'm InitForm', options: {} },
-  { key: `${project.name}ValidateForm`, component: 'ValidateFrom', title: 'm ValidateForm', options: {} },
+  { key: `${project.name}Form`, component: 'Form', options: {} },
+  { key: `${project.name}DefaultForm`, component: 'DefaultFrom', options: {} },
+  { key: `${project.name}InitForm`, component: 'InitFrom',  options: {} },
+  { key: `${project.name}ValidateForm`, component: 'ValidateFrom', options: {} },
 ]
 
 const Routes = () => (
-  <Router sceneStyle={{ marginTop: 70 }}>
-    <Scene key="modularHome" component={scene.Home} title="m Home" initial />
+  <Router hideNavBar>
+    <Scene key="modularHome" component={scene.Home} initial  />
     <Scene key="errorPage" component={scene.ErrorToken} />
     {renderScenes(Scenes, scene)}
   </Router>

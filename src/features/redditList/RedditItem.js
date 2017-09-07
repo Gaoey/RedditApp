@@ -1,19 +1,21 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
+import { Card, CardTitle, CardItem, CardContent, CardImage } from '../../common/stupidCard'
 
 const RedditItem = ({ data }) => {
     return (
-        <View>
-            <Image
-                style={{width: 100, height: 100}}
-                source={{uri:data.thumbnail}}
-            />
-            <Text>{data.title}</Text>
-            <Text>{data.author}</Text>
-            <Text>-----------------------</Text>
-        </View>
-    );
+        <Card>
+            <CardContent>
+                <CardImage src={data.thumbnail} />
+                <CardTitle>
+                    <Text>{data.title}</Text>
+                </CardTitle>
+                <CardItem>
+                    <Text>{data.description}</Text>
+                </CardItem>
+            </CardContent>
+        </Card>)
 };
 
 
