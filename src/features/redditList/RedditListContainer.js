@@ -1,13 +1,23 @@
 //import liraries
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import { ScrollView, Text, FlatList, View } from 'react-native';
+import Mascot from 'mascot'
+import {
+    ScrollView,
+    Text,
+    FlatList,
+    View,
+    Image,
+    StyleSheet,
+    Dimensions
+} from 'react-native';
 import { connect } from 'react-redux';
 import { project } from '../../config';
 import { fetchPostsIfNeeded } from './RedditListAction';
 import RedditItem from './RedditItem'
 
-// create a component
+const { height, width } = Dimensions.get('window');
+
 class RedditListContainer extends Component {
 
     static propTypes = {
@@ -18,8 +28,8 @@ class RedditListContainer extends Component {
         this.props.fetchRedditPost(this.props.category)
     }
 
-    componentWillReceiveProps(nextProps){
-        if(nextProps.category !== this.props.category){
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.category !== this.props.category) {
             this.props.fetchRedditPost(nextProps.category)
         }
     }
@@ -36,9 +46,10 @@ class RedditListContainer extends Component {
     render() {
         const { isFetching, error, value } = this.props.posts
         const postsIsEmpty = value.length === 0
+        const { Images } = Mascot
         return (
             <View>
-                {isFetching && postsIsEmpty ? <Text>loading</Text> : null}
+                {isFetching && postsIsEmpty ? <Image source={Images["LOADING_ANIMATION"]} style={styles.loading} /> : null}
                 {error ? <Text>{error}</Text> : null}
                 <FlatList
                     data={value}
@@ -49,6 +60,15 @@ class RedditListContainer extends Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    loading: {
+        width: 200,
+        height: 200,
+        marginLeft: width / 4,
+        marginTop: height / 6
+    }
+})
 
 const mapStateToProps = (state, ownProps) => {
     return {
