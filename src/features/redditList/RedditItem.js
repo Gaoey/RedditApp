@@ -1,14 +1,15 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Actions } from 'react-native-router-flux'
 import { Text, StyleSheet } from 'react-native';
 import { Card, CardTitle, CardItem, CardContent, CardImage } from '../../common/stupidCard'
 
 const RedditItem = ({ data }) => {
     const hasImageSrc = data.thumbnail !== ""
     return (
-        <Card>
+        <Card onPress={() => Actions.modularDetail(data.id)}>
             <CardContent>
-                { hasImageSrc ? <CardImage src={data.thumbnail} /> : null }
+                {hasImageSrc ? <CardImage src={data.thumbnail} /> : null}
                 <CardTitle>
                     <Text>{data.title}</Text>
                 </CardTitle>

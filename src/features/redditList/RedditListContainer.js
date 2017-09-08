@@ -1,5 +1,4 @@
-//import liraries
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Mascot from 'mascot'
 import {
@@ -13,7 +12,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { project } from '../../config';
-import { fetchPostsIfNeeded } from './RedditListAction';
+import { fetchPostsIfNeeded } from './redditListAction';
 import RedditItem from './RedditItem'
 
 const { height, width } = Dimensions.get('window');
@@ -40,7 +39,8 @@ class RedditListContainer extends Component {
         const thisData = item.data
         return < RedditItem
             id={thisData.id}
-            data={thisData} />
+            data={thisData}
+        />
     }
 
     render() {
@@ -49,7 +49,7 @@ class RedditListContainer extends Component {
         const { Images } = Mascot
         return (
             <View>
-                {isFetching && postsIsEmpty ? <Image source={Images["LOADING_ANIMATION"]} style={styles.loading} /> : null}
+                {isFetching || postsIsEmpty ? <Image source={Images["LOADING_ANIMATION"]} style={styles.loading} /> : null}
                 {error ? <Text>{error}</Text> : null}
                 <FlatList
                     data={value}

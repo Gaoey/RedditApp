@@ -7,3 +7,4 @@ export const SET_API_IS_CALLING_TRUE = 'SET_API_IS_CALLING_TRUE'
 export const SET_API_IS_CALLING_FALSE = 'SET_API_IS_CALLING_FALSE'
 
 export const FETCH_REDDIT = generateActionType('FETCH_REDDIT')
+export const FETCH_REDDIT_DETAIL = generateActionType('FETCH_REDDIT_DETAIL')

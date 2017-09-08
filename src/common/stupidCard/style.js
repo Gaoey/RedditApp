@@ -9,6 +9,8 @@ const styles = StyleSheet.create({
         margin: 5
     },
     card: {
+        flex: 1,
+        flexDirection: 'column',
         backgroundColor: "#fff",
         borderRadius: 2,
         shadowColor: "#000000",

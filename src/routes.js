@@ -9,6 +9,8 @@ export const Scenes = [
   { key: `${project.name}DefaultForm`, component: 'DefaultFrom', options: {} },
   { key: `${project.name}InitForm`, component: 'InitFrom',  options: {} },
   { key: `${project.name}ValidateForm`, component: 'ValidateFrom', options: {} },
+  // my Scene
+  { key: 'modularDetail', component: 'Detail', options: {} },
 ]
 
 const Routes = () => (
