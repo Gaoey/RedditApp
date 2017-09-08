@@ -17,6 +17,7 @@ function posts(state = {
           ...state,
           isFetching: false,
           value: action.payload,
+          comment: action.comment
         };
       case FETCH_REDDIT_DETAIL.FAILURE:
         return {

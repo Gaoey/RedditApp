@@ -6,7 +6,7 @@ import { project } from '../../../config'
 import { fetchPostsIfNeeded } from './redditDetailAction'
 import { Card } from '../../../common/stupidCard'
 import Mascot from 'mascot'
-import RedditDetailItem from './redditDetailItem';
+import RedditDetailItem from './RedditDetailItem';
 
 class redditDetailContainer extends Component {
 

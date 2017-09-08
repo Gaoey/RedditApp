@@ -49,13 +49,15 @@ class RedditListContainer extends Component {
         const { Images } = Mascot
         return (
             <View>
-                {isFetching || postsIsEmpty ? <Image source={Images["LOADING_ANIMATION"]} style={styles.loading} /> : null}
+                {isFetching || postsIsEmpty ?
+                    <Image source={Images["LOADING_ANIMATION"]} style={styles.loading} />
+                    : <FlatList
+                        data={value}
+                        keyExtractor={this.keyExtractor}
+                        renderItem={this.renderItem}
+                    />}
                 {error ? <Text>{error}</Text> : null}
-                <FlatList
-                    data={value}
-                    keyExtractor={this.keyExtractor}
-                    renderItem={this.renderItem}
-                />
+
             </View>
         )
     }

@@ -13,8 +13,6 @@ class CardImage extends Component {
         const { src, styles } = this.props
         const newStyles = styles || {}
         const { height, width } = Dimensions.get('window')
-
-        console.log(src)
         return (
             <View style={[oldStyle.CardImage, newStyles.CardImage]}>
                 <Image

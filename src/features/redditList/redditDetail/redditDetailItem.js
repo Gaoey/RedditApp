@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Card, CardTitle, CardItem, CardImage, CardContent } from '../../../common/stupidCard'
+import { hasImageSrc } from '../../../utils/utilFunction';
 
-const redditDetailItem = ({ data }) => {
-    const hasImageSrc = data.thumbnail !== "" && data.thumbnail !== 'image' && data.thumbnail !== 'default'
+const RedditDetailItem = ({ data }) => {
     return (
         <CardContent>
-            {hasImageSrc ? <CardImage src={data.thumbnail} /> : null}
+            {hasImageSrc(data.thumbnail) ? <CardImage src={data.thumbnail} /> : null}
             <CardTitle>
                 <Text>{data.title}</Text>
             </CardTitle>
@@ -14,4 +14,4 @@ const redditDetailItem = ({ data }) => {
     );
 };
 
-export default redditDetailItem;
+export default RedditDetailItem;
