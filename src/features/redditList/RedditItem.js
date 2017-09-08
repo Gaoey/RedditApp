@@ -5,7 +5,7 @@ import { Text, StyleSheet } from 'react-native';
 import { Card, CardTitle, CardItem, CardContent, CardImage } from '../../common/stupidCard'
 
 const RedditItem = ({ data }) => {
-    const hasImageSrc = data.thumbnail !== ""
+    const hasImageSrc = data.thumbnail !== "" && data.thumbnail !== 'image' && data.thumbnail !== 'default'
     return (
         <Card onPress={() => Actions.modularDetail(data.id)}>
             <CardContent>

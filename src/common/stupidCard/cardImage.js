@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Image } from 'react-native'
+import { View, Image, Dimensions } from 'react-native'
 import { PropTypes } from 'prop-types'
 import oldStyle from './style'
 
@@ -12,10 +12,13 @@ class CardImage extends Component {
     render() {
         const { src, styles } = this.props
         const newStyles = styles || {}
+        const { height, width } = Dimensions.get('window')
+
+        console.log(src)
         return (
             <View style={[oldStyle.CardImage, newStyles.CardImage]}>
                 <Image
-                    style={{width: 66, height: 58}}
+                    style={{ width: width-20, height: 200 }}
                     source={{ uri: src }}
                 />
             </View>

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         flexDirection: 'column',
-        maxHeight: 300,
+        maxHeight: 400,
         marginTop: 70
     }
 })

@@ -42,8 +42,8 @@ class Home extends Component {
         <NavBar title={{ text: 'GAOEY REDDIT' }} hasShadow />
         <View style={styles.content}>
           {/* {tab view} */}
-          <WizardTabBar
-            tabs={this.generateTab()} />
+            <WizardTabBar
+              tabs={this.generateTab()} />
           <RedditListContainer category={this.state.onClickCategory} />
         </View>
       </View>
